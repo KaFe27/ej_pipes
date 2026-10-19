@@ -42,6 +42,11 @@ namespace Ucu.Poo.PipesAndFilters
             IPipe discordPipe = new PipeSerial(filterDiscord, pipeNull);
             discordPipe.Send(picture);
 
+            //Ejercicio 4
+            
+            
+            
+
         }
     }
 }
