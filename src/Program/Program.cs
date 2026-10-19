@@ -44,7 +44,14 @@ namespace Ucu.Poo.PipesAndFilters
 
             //Ejercicio 4
             
-            
+            //Ejercicio 4
+            IPipe pipeTrue = new PipeSerial(new FilterSave(@"conCara.jpg"), pipeNull);
+            IPipe pipeFalse = new PipeSerial(new FilterNegative(), pipeNull);
+            IPipe pipeConditional = new PipeConditional(new FilterCognitive(), pipeTrue, pipeFalse);
+            IPipe pipeSerial4 = new PipeSerial(new FilterGrayscale(), pipeConditional);
+
+            result = pipeSerial4.Send(picture);
+            provider.SavePicture(result, @"result4.jpg");
             
 
         }

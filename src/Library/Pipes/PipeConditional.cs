@@ -21,18 +21,12 @@ namespace Ucu.Poo.PipesAndFilters.Pipes
 
         public IPicture Send(IPicture picture)
         {
-            if (picture == null)
-            {
-                return null;
-            }
-            else if (this.FilterConditional.Filter(picture) == null)
-            {
-                return this.NextPipeFalse.Send(picture);
-            }
-            else
+            this.FilterConditional.Filter(picture);
+            if (this.FilterConditional.result)
             {
                 return this.NextPipeTrue.Send(picture);
             }
+            return this.NextPipeFalse.Send(picture);
         }
         
     }
